@@ -15,7 +15,8 @@ public class amqsender {
         sender.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
         sender.send(msg);
         System.out.println("Wyslano: >"+msg.getText()+"< "+msg.getJMSMessageID()+" "+msg.getJMSCorrelationID());
-
+        sender.close();
+        session.close();
         connection.stop();
     }
 }
